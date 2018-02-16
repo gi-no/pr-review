@@ -37,7 +37,7 @@ class PrPolice
 		<<~EOS
 			#{ requested_reviewers(json) }
 			レビューよろしくお願いします。
-			#{ json['url'] }
+			#{ json['html_url'] }
 		EOS
 	end
 
