@@ -29,7 +29,7 @@ class PrPolice
 	private
 
 	def notify_to_slack(text)
-		slack = Slack::Incoming::Webhooks.new(WEBHOOK_URL)
+		slack = Slack::Incoming::Webhooks.new(ENV["WEBHOOK_URL"])
 		slack.post(text)
 	end
 
