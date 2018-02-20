@@ -20,6 +20,7 @@ class PrPolice
 
 		results.each do |result|
 			next if wip?(result)
+			next if pending?(result)
 
 			txt = notification_text(result)
 			notify_to_slack(txt)
@@ -47,6 +48,14 @@ class PrPolice
 		json['requested_reviewers']
 			.map { |j| "<@#{ SLACK_USERS[j['login'].to_sym] }>" }
 			.join(', ')
+	end
+
+	def pending?(json)
+		results = json['labels'].map do |label|
+			label.has_value?('pending')
+		end
+
+		results.include?(true)
 	end
 
 	def wip?(json)
