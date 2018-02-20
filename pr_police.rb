@@ -19,6 +19,8 @@ class PrPolice
 		return if results.empty?
 
 		results.each do |result|
+			next if wip?(result)
+
 			txt = notification_text(result)
 			notify_to_slack(txt)
 		end
@@ -45,5 +47,9 @@ class PrPolice
 		json['requested_reviewers']
 			.map { |j| "<@#{ SLACK_USERS[j['login'].to_sym] }>" }
 			.join(', ')
+	end
+
+	def wip?(json)
+		json['title'].start_with?('[WIP]')
 	end
 end
