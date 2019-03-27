@@ -18,7 +18,6 @@ ADD Gemfile      $HOME/Gemfile
 ADD Gemfile.lock $HOME/Gemfile.lock
 
 RUN bundle install
-RUN gem list
 
 ADD . $HOME
 
