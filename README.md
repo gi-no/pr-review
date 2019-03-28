@@ -23,9 +23,7 @@ $ docker run pr_police
 ### Heroku
 
 ```
-$ heroku create
-$ heroku container:push worker
-$ heroku container:release worker
+$ git push heroku master
 ```
 
 ### Worker
