@@ -2,15 +2,6 @@
 
 ## セットアップ
 
-### gemのインストール
-
-```
-$ gem install clockwork
-$ gem install dotenv
-$ gem install slack-incoming-webhooks
-$ gem install business_time
-```
-
 ### 環境変数の設定
 
 ```
@@ -23,5 +14,23 @@ $ cp slack_users_example.rb slack_users.rb
 ### 起動
 
 ```
-clockwork clock.rb
+$ docker build -t pr_police
+$ docker run pr_police
+```
+
+## デプロイ
+
+### Heroku
+
+```
+$ heroku create
+$ heroku container:push worker
+$ heroku container:release worker
+```
+
+### Worker
+
+```
+$ heroku ps:scale worker=1 # 起動
+$ heroku ps:scale worker=0 # 停止
 ```
