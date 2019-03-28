@@ -13,6 +13,7 @@ class PrPolice
 	URL = "https://api.github.com/repos/#{ ENV["OWNER"] }/#{ ENV["REPOSITORY"] }/pulls?access_token=#{ ENV["ACCESS_TOKEN"] }&state=open"
 
 	def notify
+		puts URL
 		res = Faraday.get(URL)
 		res_json = JSON.parse(res.body)
 		results = res_json.select { |res| res['requested_reviewers'].present? }
