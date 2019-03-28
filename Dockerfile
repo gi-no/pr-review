@@ -21,4 +21,4 @@ RUN bundle install
 
 ADD . $HOME
 
-CMD ["clockwork", "clock.rb"]
+CMD ["nohup", "clockwork", "clock.rb", "&"]
