@@ -13,9 +13,12 @@ GEM
       tzinfo
     concurrent-ruby (1.1.4)
     dotenv (2.6.0)
+    faraday (0.15.4)
+      multipart-post (>= 1.2, < 3)
     i18n (1.5.3)
       concurrent-ruby (~> 1.0)
     minitest (5.11.3)
+    multipart-post (2.0.0)
     slack-incoming-webhooks (0.2.0)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
@@ -28,6 +31,7 @@ DEPENDENCIES
   business_time
   clockwork
   dotenv
+  faraday
   slack-incoming-webhooks
 
 BUNDLED WITH
