@@ -14,7 +14,7 @@ $ cp slack_users_example.rb slack_users.rb
 ### 起動
 
 ```
-$ docker build -t pr_police
+$ docker build -t pr_police .
 $ docker run pr_police
 ```
 
